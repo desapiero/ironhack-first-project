@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Pedal na Marginal</title>
+  </head>
+  <body>
+    <div class="game-intro">
+      <img src="./images/foto-capivara.jpg" alt="" class="logo-img" />
+      <br />
+      <button id="start-button">Começar o pedal!</button>
+      <p>Use as setas para controlar a bicicleta. <br/> Desvie das capivaras e dos ciclistas no sentido oposto!</p>
+      <img src="./images/arrows.png" alt="" class="arrows-img" />
+      <h1>Pontuação: <span id="game-score">0</span></h1>
+    </div>
+
+
+    <div id="game-board">
+      <canvas id="canvas" width="600" height="900"></canvas>
+    </div>
+
+    <script type="text/javascript" src="./js/objects.js"></script>
+    <script type="text/javascript" src="./js/game.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
