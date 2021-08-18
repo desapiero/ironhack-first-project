@@ -8,11 +8,14 @@ window.onload = () => {
       const playerImg = new Image();
       playerImg.src = './images/player.png';
       const capivaraImg = new Image();
-      capivaraImg.src = './images/capivara.jpg';
+      capivaraImg.src = './images/capivara.png';
+      const ciclistaImg = new Image();
+      ciclistaImg.src = './images/ciclista.png';
   
       fieldImg.onload = () => {
         playerImg.onload = () => {
           capivaraImg.onload = () => {
+            ciclistaImg.onload = () => {
         const field = new Field(
           canvas, context, 0, 0, canvas.width, canvas.height, fieldImg,
         );
@@ -21,7 +24,7 @@ window.onload = () => {
         );
 
   
-        const game = new Game(canvas, context, field, player, Obstacle, capivaraImg);
+        const game = new Game(canvas, context, field, player, Obstacle, capivaraImg, ciclistaImg);
       
         game.configurarTeclado();
         game.startGame();
@@ -29,4 +32,5 @@ window.onload = () => {
     };
    };
   };
+ };
 };

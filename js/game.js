@@ -1,5 +1,5 @@
 class Game {
-    constructor (canvas, context, field, player, obstacleConstructor, capivaraImg) {
+    constructor (canvas, context, field, player, obstacleConstructor, capivaraImg, ciclistaImg) {
       this.canvas = canvas;
       this.context = context;
       this.field = field;
@@ -11,6 +11,7 @@ class Game {
       this.newCapivaraFPS = 300;
       this.capivaraImg = capivaraImg;
       this.newCiclistaFPS = 150;
+      this.ciclistaImg = ciclistaImg
       this.playerSpeed = {  
         initialSpeed: 0,
         speedIncrement: 1,
@@ -109,7 +110,7 @@ class Game {
       const randomPosX = this.generateRandomNumber(175, 340);
 
       const newCiclista = new this.obstacleConstructor(
-      this.canvas, this.context, randomPosX, 0, 50, 50, this.capivaraImg,
+      this.canvas, this.context, randomPosX, 0, 50, 50, this.ciclistaImg,
     );
   
     return newCiclista;
