@@ -1,5 +1,5 @@
 class Game {
-    constructor (canvas, context, field, player, obstacleConstructor, capivaraImg, ciclistaImg) {
+    constructor (canvas, context, field, player, obstacleConstructor, capivaraImg, ciclistaImg, gameOverImg, gameOverMusic) {
       this.canvas = canvas;
       this.context = context;
       this.field = field;
@@ -11,7 +11,9 @@ class Game {
       this.newCapivaraFPS = 300;
       this.capivaraImg = capivaraImg;
       this.newCiclistaFPS = 150;
-      this.ciclistaImg = ciclistaImg
+      this.ciclistaImg = ciclistaImg;
+      this.gameOverImg = gameOverImg;
+      this.gameOverMusic = gameOverMusic;
       this.playerSpeed = {  
         initialSpeed: 0,
         speedIncrement: 1,
@@ -100,7 +102,7 @@ class Game {
       const randomPosX = this.generateRandomNumber(390, 500);
       
         const newCapivara = new this.obstacleConstructor(
-        this.canvas, this.context, randomPosX, 100, 100, 30, this.capivaraImg,
+        this.canvas, this.context, randomPosX, 100, 100, 60, this.capivaraImg,
       );
     
       return newCapivara;
@@ -110,7 +112,7 @@ class Game {
       const randomPosX = this.generateRandomNumber(175, 340);
 
       const newCiclista = new this.obstacleConstructor(
-      this.canvas, this.context, randomPosX, 0, 50, 50, this.ciclistaImg,
+      this.canvas, this.context, randomPosX, 0, 50, 100, this.ciclistaImg,
     );
   
     return newCiclista;
@@ -144,18 +146,30 @@ class Game {
     showFinalGameStats = () =>{
       setTimeout(() =>{
         this.clearField();
-  
-        this.context.fillStyle ='black';
+ 
+        this.context.fillStyle ='green';
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
         
+        const gameOverImg = new Image();
+        gameOverImg.src = "./images/GameOver.png";
+        this.context.drawImage(gameOverImg, 0, 0, 600, 253 );
+        
+        const gameOverMusic = new Audio();
+        gameOverMusic.src = "./sounds/GameOver.mp3";
+        gameOverMusic.volume = 0.9;
+        gameOverMusic.play();
+    
         this.context.textAlign = 'center';
         this.context.font = '50px Comic Sans'
         this.context.fillStyle ='red';
-        this.context.fillText("You're winner!", this.canvas.width / 2, this.canvas.height / 3);
+        this.context.fillText("Valeu!", this.canvas.width / 2, this.canvas.height / 3);
   
         this.context.fillStyle ='white';
-        this.context.fillText("Your final score is:", this.canvas.width / 2, this.canvas.height / 3 + 70);
+        this.context.fillText("Você conseguiu pedalar:", this.canvas.width / 2, this.canvas.height / 3 + 70);
+        this.context.fillStyle ='red';
         this.context.fillText(this.score.points, this.canvas.width / 2, this.canvas.height / 3 + 140);
+        this.context.fillStyle ='white';
+        this.context.fillText("metros", this.canvas.width / 2 + 150, this.canvas.height / 3 + 140);
       }, 1000);
     };
   }

@@ -11,11 +11,16 @@ window.onload = () => {
       capivaraImg.src = './images/capivara.png';
       const ciclistaImg = new Image();
       ciclistaImg.src = './images/ciclista.png';
+      const gameOverImg = new Image();
+      gameOverImg.src = "./images/GameOver.png";
+      const gameOverMusic = new Audio();
+      gameOverMusic.src = "./sounds/GameOver.mp3";
+
   
       fieldImg.onload = () => {
         playerImg.onload = () => {
           capivaraImg.onload = () => {
-            ciclistaImg.onload = () => {
+              ciclistaImg.onload = () => {
         const field = new Field(
           canvas, context, 0, 0, canvas.width, canvas.height, fieldImg,
         );
@@ -23,8 +28,7 @@ window.onload = () => {
           canvas, context, 220, 550, 60, 120, playerImg,
         );
 
-  
-        const game = new Game(canvas, context, field, player, Obstacle, capivaraImg, ciclistaImg);
+        const game = new Game(canvas, context, field, player, Obstacle, capivaraImg, ciclistaImg, gameOverImg, gameOverMusic);
       
         game.configurarTeclado();
         game.startGame();
