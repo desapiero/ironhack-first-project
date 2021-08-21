@@ -6,6 +6,7 @@ body {
   .game-intro {
     float: left;
     padding: 0% 10%;
+    /* border: green 2px solid; */
   }
   
   .game-intro p {
@@ -16,11 +17,13 @@ body {
   .logo-img {
     width: 350px;
   }
-  
-  .arrows-img {
-    width: 150px;
+
+  .table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }
-  
+
   body button {
     width: 350px;
     font-size: 30px;
@@ -36,4 +39,7 @@ body {
   #game-board {
       float: left;
       padding: 20px 0px;
+  }
+  #game-score {
+    color: red;
   }

@@ -152,7 +152,7 @@ class Game {
         
         const gameOverImg = new Image();
         gameOverImg.src = "./images/GameOver.png";
-        this.context.drawImage(gameOverImg, 0, 0, 600, 253 );
+        this.context.drawImage(gameOverImg, 5, 5, 590, 243 );
         
         const gameOverMusic = new Audio();
         gameOverMusic.src = "./sounds/GameOver.mp3";
